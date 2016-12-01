@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+<form-beans>
+ 
+		<form-bean name="AddContactValidationForm" 
+		type="org.lip6.struts.actionForm.Contact.AddContactValidationForm"/>
+		
+		<form-bean name="DeleteContact" 
+		type="org.lip6.struts.actionForm.Contact.DeleteContactForm"/>
+		
+		<form-bean name="DeleteContactFromGroupe" 
+		type="org.lip6.struts.actionForm.Group.DeleteContactForm"/>
+		
+		
+		<form-bean name="DeletePhone" 
+		type="org.lip6.struts.actionForm.Phone.DeletePhoneForm"/>
+		
+		<form-bean name="DeletePhoneP" 
+		type="org.lip6.struts.actionForm.Contact.DeletePhoneFormP"/>
+		
+	 <form-bean name="LoginActionForm" 
+		type="org.lip6.struts.actionForm.LoginActionForm"/>
+		
+		<form-bean name="AddGroupForm" 
+		type="org.lip6.struts.actionForm.Group.GroupFormAction"/>
+		
+		<form-bean name="AddPhoneForm" 
+		type="org.lip6.struts.actionForm.Phone.PhoneActionForm"/>
+		
+		<form-bean name="SearchContactForm" 
+		type="org.lip6.struts.actionForm.Contact.SearchActionForm"/>
+		
+		<form-bean name="SearchPhoneForm" 
+		type="org.lip6.struts.actionForm.Phone.SearchActionForm"/>
+		
+	
+		
+		<form-bean name="ForwardEditForm" 
+		type="org.lip6.struts.actionForm.Contact.ForwardEdit"/>
+		
+		<form-bean name="EditContactForm" 
+		type="org.lip6.struts.actionForm.Contact.Edit"/>
+		
+		<form-bean name="EditPhoneFormm" 
+		type="org.lip6.struts.actionForm.Phone.Edit"/>
+		
+		<form-bean name="EditPhoneFormp" 
+		type="org.lip6.struts.actionForm.Contact.EditP"/>
+		
+			<form-bean name="ForwardEditFormPhone" 
+		type="org.lip6.struts.actionForm.Phone.ForwardEdit"/>
+		
+		<form-bean name="ForwardEditFormPhonee" 
+		type="org.lip6.struts.actionForm.Contact.ForwardEdite"/>
+		
+			<form-bean name="ForwardAddPhone" 
+		type="org.lip6.struts.actionForm.Contact.ForwardAddphone"/>
+		
+		<form-bean name="AddPhoneToContactForm" 
+		type="org.lip6.struts.actionForm.Contact.AddPhoneToContact"/>
+		
+		
+		<form-bean name="FormwardEditGroup" 
+		type="org.lip6.struts.actionForm.Group.FormwardEditGroup"/>
+		
+		<form-bean name="EditGroup" 
+		type="org.lip6.struts.actionForm.Group.EditGroup"/>
+		
+			<form-bean name="DeleteGroup" 
+		type="org.lip6.struts.actionForm.Group.DelteGroup"/>
+		
+		<form-bean name="SearchGroupe" 
+		type="org.lip6.struts.actionForm.Group.SearchGroup"/>
+		
+		<form-bean name="AddContatToGroupe" 
+		type="org.lip6.struts.actionForm.Group.AddContatToGroup"/>
+		
+		<form-bean name="SeePhonee" 
+		type="org.lip6.struts.actionForm.Contact.SeePhonee"/>
+		
+			<form-bean name="SeeContacte" 
+		type="org.lip6.struts.actionForm.Group.SeeContacte"/>
+		
+</form-beans>
+
+
+
+	<action-mappings>
+  
+	<action path="/ContactCreation" forward="/pages/Contact/CreateContact.jsp" />
+	<action path="/AddContact" 
+				type="org.lip6.struts.servletAction.Contact.AddContactAction"
+				name="AddContactValidationForm" scope="request" 
+				input="/pages/Contact/CreateContactFormulaire.jsp">
+		    <forward name="success" path="/pages/Contact/CreateContact.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action>
+	
+	<action path="/AddGroup" 
+				type="org.lip6.struts.servletAction.Group.GroupAction"
+				name="AddGroupForm" scope="request" 
+				input="/pages/Group/CreateGroupFormulaire.jsp">
+		    <forward name="success" path="/pages/Group/CreateGroup.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action>
+	
+    <action path="/DeleteContact" forward="/pages/Contact/DeleteContact.jsp" />
+	
+	<action path="/DeleteContact" 
+				type="org.lip6.struts.servletAction.Contact.DeleteContact"
+				name="DeleteContact" scope="request" 
+				input="/pages/Contact/CreateContact.jsp">
+		    <forward name="success" path="/pages/Contact/CreateContact.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action>
+	
+	
+	<action path="/DeleteContactFromGroup" 
+				type="org.lip6.struts.servletAction.Group.DeleteContact"
+				name="DeleteContactFromGroupe" scope="request" 
+				input="/pages/Group/ListContact.jsp">
+		    <forward name="success" path="/pages/Contact/CreateContact.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action>
+	
+		<action path="/Login" 
+				type="org.lip6.struts.servletAction.LoginAction"
+				name="LoginActionForm" scope="request" 
+				input="/pages/Login.jsp">
+		    <forward name="success" path="/pages/Contact/DeleteContact.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+			<forward name="main"   path="/pages/main.jsp" />
+	</action>
+	
+		<action path="/AddPhone" 
+				type="org.lip6.struts.servletAction.Phone.phoneAction"
+				name="AddPhoneForm" scope="request" 
+				input="/pages/Phone/PhoneForm.jsp">
+		    <forward name="success" path="/pages/Phone/MainPhone.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+			<forward name="main"   path="/pages/main.jsp" />
+	</action> 
+		<action path="/Search" 
+				type="org.lip6.struts.servletAction.Contact.SearchphoneAction"
+				name="SearchContactForm" scope="request" 
+				input="/pages/Contact/CreateContact.jsp">
+		    <forward name="success" path="/pages/Contact/SearchResultat.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action>  
+	  
+		<action path="/SearchPhone" 
+				type="org.lip6.struts.servletAction.Phone.SearchphoneAction"
+				name="SearchPhoneForm" scope="request" 
+				input="/pages/Phone/MainPhone.jsp">
+		    <forward name="success" path="/pages/Phone/SearchResultat.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action>  
+	
+		<action path="/SearchGroup" 
+				type="org.lip6.struts.servletAction.Group.SearchGroupe"
+				name="SearchGroupe" scope="request" 
+				input="/pages/Group/CreateGroup.jsp">
+		    <forward name="success" path="/pages/Group/SearchResultat.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action>
+		<action path="/FormwardEditGroup" 
+				type="org.lip6.struts.servletAction.Group.FormwardEditGroupe"
+				name="FormwardEditGroup" scope="request" 
+				input="/pages/Group/CreateGroup.jsp">
+		    <forward name="success" path="/pages/Group/EditGroup.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action>
+	 
+		<action path="/EditGroup" 
+				type="org.lip6.struts.servletAction.Group.EditGroupe"
+				name="EditGroup" scope="request" 
+				input="/pages/Group/EditGroup.jsp">
+		    <forward name="success" path="/pages/Group/CreateGroup.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action>
+		<action path="/EditContact" 
+				type="org.lip6.struts.servletAction.Contact.Edite"
+				name="EditContactForm" scope="request" 
+				input="/pages/Contact/EditContact.jsp">
+		    <forward name="success" path="/pages/Contact/CreateContact.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action> 
+	
+	
+		<action path="/EditPhone" 
+				type="org.lip6.struts.servletAction.Phone.Edite"
+				name="EditPhoneFormm" scope="request" 
+				input="/pages/Phone/EditPhone.jsp">
+		    <forward name="success" path="/pages/Phone/MainPhone.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action> 
+	<action path="/EditPhonee" 
+				type="org.lip6.struts.servletAction.Contact.EditeP"
+				name="EditPhoneFormp" scope="request" 
+				input="/pages/Contact/EditPhone.jsp">
+		    <forward name="success" path="/pages/Contact/ListPhone.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action> 
+	
+	<action path="/FormwardEdit" 
+				type="org.lip6.struts.servletAction.Contact.ForwardEdite"
+				name="ForwardEditForm" scope="request" 
+				input="/pages/Contact/CreateContact.jsp">
+		    <forward name="success" path="/pages/Contact/EditContact.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action> 
+	
+	<action path="/FormwardEditPhone" 
+				type="org.lip6.struts.servletAction.Phone.ForwardEditee"
+				name="ForwardEditFormPhone" scope="request" 
+				input="/pages/Phone/MainPhone.jsp">
+		    <forward name="success" path="/pages/Phone/EditPhone.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action>
+		<action path="/FormwardEditPhonee" 
+				type="org.lip6.struts.servletAction.Contact.ForwardEditeee"
+				name="ForwardEditFormPhonee" scope="request" 
+				input="/pages/Contact/ListPhone.jsp">
+		    <forward name="success" path="/pages/Contact/EditPhone.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action>
+	
+	<action path="/FormwardAddPhone" 
+				type="org.lip6.struts.servletAction.Contact.ForwardAddPhone"
+				name="ForwardAddPhone" scope="request" 
+				input="/pages/Contact/CreateContact.jsp">
+		    <forward name="success" path="/pages/Contact/AddPhone.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action> 
+	<action path="/FormwardAddPhonee" 
+				type="org.lip6.struts.servletAction.Contact.ForwardAddPhone"
+				name="ForwardAddPhone" scope="request" 
+				input="/pages/Contact/ListPhone.jsp">
+		    <forward name="success" path="/pages/Contact/AddPhone.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action> 
+	
+	<action path="/AddPhoneToContact" 
+				type="org.lip6.struts.servletAction.Contact.AddPhoneToContactAction"
+				name="AddPhoneToContactForm" scope="request" 
+				input="/pages/Contact/AddPhone.jsp">
+		    <forward name="success" path="/pages/Contact/CreateContact.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action> 
+	<action path="/DeletePhone" 
+				type="org.lip6.struts.servletAction.Phone.DeletePhonee"
+				name="DeletePhone" scope="request" 
+				input="/pages/Phone/MainPhone.jsp">
+		    <forward name="success" path="/pages/Phone/MainPhone.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action> 
+	
+	<action path="/DeletePhoneC" 
+				type="org.lip6.struts.servletAction.Contact.DeletePhoneP"
+				name="DeletePhoneP" scope="request" 
+				input="/pages/Contact/ListPhone.jsp">
+		    <forward name="success" path="/pages/Contact/ListPhone.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action>  
+	
+	
+	<action path="/DeleteGroup" 
+				type="org.lip6.struts.servletAction.Group.DeleteGroupe"
+				name="DeleteGroup" scope="request" 
+				input="/pages/Group/CreateGroup.jsp">
+		    <forward name="success" path="/pages/Group/CreateGroup.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action> 
+	
+	<action path="/AddContatToGroup" 
+				type="org.lip6.struts.servletAction.Group.AddContatToGroupe"
+				name="AddContatToGroupe" scope="request" 
+				input="/pages/Group/CreateGroup.jsp">
+		    <forward name="success" path="/pages/Group/CreateGroup.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action> 
+	
+	<action path="/SeePhone" 
+				type="org.lip6.struts.servletAction.Contact.SeePhone"
+				name="SeePhonee" scope="request" 
+				input="/pages/Contact/CreateContact.jsp">
+		    <forward name="success" path="/pages/Contact/ListPhone.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action> 
+	
+	<action path="/SeeContatGroup" 
+				type="org.lip6.struts.servletAction.Group.SeeContact"
+				name="SeeContacte" scope="request" 
+				input="/pages/Group/CreateGroup.jsp">
+		    <forward name="success" path="/pages/Group/ListContact.jsp"/>
+			<forward name="error"   path="/pages/error.jsp" />
+	</action> 
+	
+    <action path="/Group" forward="/pages/Group/CreateGroup.jsp" />
+    <action path="/CreerContact" forward="/pages/Contact/CreateContactFormulaire.jsp" />
+	<action path="/GroupCreation" forward="/pages/Group/CreateGroupFormulaire.jsp" />
+	<action path="/Phone" forward="/pages/Phone/MainPhone.jsp" />
+	 <action path="/EditContacte" forward="/pages/Contact/EditContact.jsp" />
+	<action path="/AddPhonee" forward="/pages/Phone/PhoneForm.jsp" />
+	<action path="/BackContact" forward="/pages/Contact/CreateContact.jsp" />
+	<action path="/Main" forward="/pages/main.jsp" />
+    <action path="/ContactMain" forward="/pages/Contact/CreateContact.jsp" />
+	</action-mappings>
+	
+<!-- ========== Delete Action and Action Form =========================== -->				
+
+  <!-- ========== message file =========================== -->
+  <message-resources parameter="Resources" />
+
+</struts-config>
